@@ -1,0 +1,7 @@
+.Resume {
+  width: 816px; /* A4 page width: 8.5 inches */
+  height: 1056px; /* A4 page height: 11 inches */
+  padding: 48px; /* 0.5 inch margins */
+  background-color: var(--surface);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
