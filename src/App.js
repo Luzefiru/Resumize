@@ -21,7 +21,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <h3>Add a Task:</h3>
         <form action="#">
           <label htmlFor="taskField">Task Name: </label>
@@ -32,7 +32,6 @@ class App extends React.Component {
         </form>
         <br />
         <br />
-        <h3>Current Tasks:</h3>
         <Overview tasks={this.state.tasks} />
       </div>
     );
