@@ -1,0 +1,14 @@
+.Header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1.7rem;
+  height: 72px;
+  background: linear-gradient(var(--primary-variant), var(--primary));
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.Header__logo {
+  height: 64px;
+  width: 164px;
+}
