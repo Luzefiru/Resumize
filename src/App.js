@@ -11,11 +11,16 @@ class App extends React.Component {
     this.addTask = this.addTask.bind(this);
   }
 
-  async addTask() {
+  addTask() {
+    // get the name of the task from the <input> field #taskField
     const name = document.querySelector('#taskField').value;
-    await this.setState((state, props) => ({
+
+    // append the task to the state object's {tasks} array
+    this.setState((state, props) => ({
       tasks: state.tasks.concat({ name }),
     }));
+
+    // remove field value for next input
     document.querySelector('#taskField').value = '';
   }
 

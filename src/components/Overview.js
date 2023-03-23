@@ -1,11 +1,12 @@
 import React from 'react';
-import './Overview.css';
 
 class Overview extends React.Component {
   render() {
+    // create an array of JSX markup to be inserted into the <ul> JSX
     const listItemsJSX = this.props.tasks.map((task) => (
       <li key={task.name}>{task.name}</li>
     ));
+
     return (
       <div>
         <h3>Current Tasks:</h3>
