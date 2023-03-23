@@ -4,10 +4,13 @@ import Overview from './components/Overview';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    // create a state object containing the {tasks} array
     this.state = {
       tasks: [],
     };
 
+    // binds the lexical context to addTask()
     this.addTask = this.addTask.bind(this);
   }
 
@@ -35,8 +38,7 @@ class App extends React.Component {
             Add
           </button>
         </form>
-        <br />
-        <br />
+        {/* Pass the state.tasks as props to Overview component */}
         <Overview tasks={this.state.tasks} />
       </div>
     );
