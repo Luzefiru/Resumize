@@ -3,7 +3,8 @@ import './ResumeHeader.css';
 
 class ResumeHeader extends React.Component {
   render() {
-    const { fName, lName, email, telNumber, location } = this.props.headerInfo;
+    const { fName, lName, email, telNumber, location } =
+      this.props.headerDetails;
     return (
       <div className="ResumeHeader">
         <div className="ResumeHeader__name">{fName + ' ' + lName}</div>

@@ -18,7 +18,7 @@
   padding: 0 0.25rem;
 }
 
-.form--heading > fieldset > button[type='submit'] {
+.form--heading > fieldset > button[type='button'] {
   all: unset;
   align-self: flex-end;
   margin-top: 0.35rem;
