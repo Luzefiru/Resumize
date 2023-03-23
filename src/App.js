@@ -7,8 +7,10 @@ class App extends React.Component {
     this.state = {
       tasks: [],
     };
+
     this.addTask = this.addTask.bind(this);
   }
+
   async addTask() {
     const name = document.querySelector('#taskField').value;
     await this.setState((state, props) => ({
@@ -16,12 +18,13 @@ class App extends React.Component {
     }));
     document.querySelector('#taskField').value = '';
   }
+
   render() {
     return (
       <div>
         <h3>Add a Task:</h3>
         <form action="#">
-          <label for="taskField">Task Name: </label>
+          <label htmlFor="taskField">Task Name: </label>
           <input type="text" placeholder="Task Name" id="taskField"></input>
           <button type="submit" onClick={this.addTask}>
             Add

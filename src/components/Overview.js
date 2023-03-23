@@ -2,7 +2,10 @@ import React from 'react';
 
 class Overview extends React.Component {
   render() {
-    return <div>Hello World!</div>;
+    const listItemsJSX = this.props.tasks.map((task) => (
+      <li key={task.name}>{task.name}</li>
+    ));
+    return <ul>{listItemsJSX}</ul>;
   }
 }
 
