@@ -1,5 +1,6 @@
 import React from 'react';
 import ResumeHeader from './ResumeHeader';
+import ResumeWorkExperience from './ResumeWorkExperience';
 import './Resume.css';
 
 class Resume extends React.Component {
@@ -7,6 +8,7 @@ class Resume extends React.Component {
     return (
       <div className="Resume">
         <ResumeHeader headerDetails={this.props.headerDetails} />
+        <ResumeWorkExperience />
       </div>
     );
   }

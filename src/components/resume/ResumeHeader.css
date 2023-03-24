@@ -6,3 +6,7 @@
 .ResumeHeader__subtext {
   font-size: 1.2rem;
 }
+
+.ResumeHeader {
+  margin-bottom: 14px;
+}
