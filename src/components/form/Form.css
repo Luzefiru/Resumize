@@ -3,3 +3,7 @@
   width: 38%;
   padding: 48px; /* 0.5 inch margins */
 }
+
+.hide {
+  display: none;
+}

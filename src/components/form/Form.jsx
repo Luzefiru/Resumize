@@ -6,20 +6,30 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleSubmitHeaderDetails = this.handleSubmitHeaderDetails.bind(this);
+    this.toggleEditHeaderDetails = this.toggleEditHeaderDetails.bind(this);
   }
 
-  handleSubmitHeaderDetails() {
+  toggleEditHeaderDetails() {
     document.querySelector('.form--header').classList.toggle('hide');
+    document
+      .querySelector('.btn--edit-header-details')
+      .classList.toggle('hide');
   }
 
   render() {
     return (
       <div className="Form">
+        <button
+          onClick={this.toggleEditHeaderDetails}
+          type="button"
+          className="btn--edit-header-details"
+        >
+          + Edit Header Details
+        </button>
         <FormHeader
           headerDetails={this.props.headerDetails}
           headerDetailsFunctions={this.props.headerDetailsFunctions}
-          handleSubmitHeaderDetails={this.handleSubmitHeaderDetails}
+          toggleEditHeaderDetails={this.toggleEditHeaderDetails}
         />
       </div>
     );

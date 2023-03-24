@@ -32,7 +32,3 @@
 .form--header > fieldset > button[type='submit']:hover {
   background-color: var(--primary-variant);
 }
-
-.hide {
-  display: none;
-}

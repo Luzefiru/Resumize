@@ -4,7 +4,7 @@ import './FormHeader.css';
 class FormHeader extends React.Component {
   render() {
     return (
-      <form className="form--header">
+      <form className="form--header hide">
         <fieldset>
           <legend>Header Details</legend>
           <label htmlFor="fName">First Name: </label>
@@ -47,7 +47,7 @@ class FormHeader extends React.Component {
             id="location"
             value={this.props.headerDetails.location}
           />
-          <button type="button" onClick={this.props.handleSubmitHeaderDetails}>
+          <button type="button" onClick={this.props.toggleEditHeaderDetails}>
             Submit
           </button>
         </fieldset>
