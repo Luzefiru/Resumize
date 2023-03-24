@@ -23,6 +23,9 @@ class ResumeWorkExperience extends React.Component {
           <div className="ResumeWorkExperience__entry__header__duration">
             {`${'Oct. 2017'} - ${'Present'}`}
           </div>
+          <div className="ResumeWorkExperience__entry__header__location">
+            City, Country
+          </div>
         </header>
         <ul className="ResumeWorkExperience__entry__responsibilities">
           <li className="responsibilities__responsibility">
@@ -44,6 +47,7 @@ class ResumeWorkExperience extends React.Component {
       <div className="ResumeWorkExperience">
         <div className="ResumeWorkExperience__title">WORK EXPERIENCE</div>
         <hr />
+        {this.generateWorkExperienceEntries(this.props.entries)}
         {this.generateWorkExperienceEntries(this.props.entries)}
       </div>
     );

@@ -1,5 +1,47 @@
+.ResumeWorkExperience {
+  font-size: 0.85rem;
+}
+
 .ResumeWorkExperience__title {
   margin-top: 1rem;
   font-weight: bold;
-  font-size: 0.85rem;
+  font-size: 1rem;
+}
+
+.ResumeWorkExperience__entry {
+  margin-top: 1rem;
+}
+
+.ResumeWorkExperience__entry__header {
+  display: grid;
+  grid-template-areas:
+    'company duration'
+    'position location';
+}
+
+.ResumeWorkExperience__entry__header__company {
+  grid-area: company;
+  font-weight: bold;
+}
+
+.ResumeWorkExperience__entry__header__duration {
+  grid-area: duration;
+  text-align: right;
+  font-weight: bold;
+}
+
+.ResumeWorkExperience__entry__header__position {
+  grid-area: position;
+  font-style: italic;
+}
+
+.ResumeWorkExperience__entry__header__location {
+  grid-area: location;
+  text-align: right;
+  font-style: italic;
+}
+
+.ResumeWorkExperience__entry__responsibilities {
+  margin-top: 4px;
+  padding-left: 1rem;
 }
