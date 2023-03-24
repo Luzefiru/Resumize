@@ -1,5 +1,47 @@
+.ResumeEducation {
+  font-size: 0.85rem;
+}
+
 .ResumeEducation__title {
   margin-top: 1rem;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.ResumeEducation__entry {
+  margin-top: 1rem;
+}
+
+.ResumeEducation__entry__header {
+  display: grid;
+  grid-template-areas:
+    'university graduation'
+    'degree location';
+}
+
+.ResumeEducation__entry__header__university {
+  grid-area: university;
+  font-weight: bold;
+}
+
+.ResumeEducation__entry__header__graduation-date {
+  grid-area: graduation;
+  text-align: right;
+  font-weight: bold;
+}
+
+.ResumeEducation__entry__header__degree {
+  grid-area: degree;
+  font-style: italic;
+}
+
+.ResumeEducation__entry__header__location {
+  grid-area: location;
+  text-align: right;
+  font-style: italic;
+}
+
+.ResumeEducation__entry__responsibilities {
+  margin-top: 4px;
+  padding-left: 1rem;
 }

@@ -10,7 +10,7 @@ class ResumeWorkExperience extends React.Component {
   }
 
   // creates entries for the work experience entries
-  generateWorkExperienceEntries(arr) {
+  generateWorkExperienceEntries(entries) {
     return (
       <div className="ResumeWorkExperience__entry">
         <header className="ResumeWorkExperience__entry__header">
