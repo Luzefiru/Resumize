@@ -48,7 +48,7 @@ class FormHeader extends React.Component {
             value={this.props.headerDetails.location}
           />
           <button type="button" onClick={this.props.toggleEditHeaderDetails}>
-            Submit
+            Save
           </button>
         </fieldset>
       </form>
