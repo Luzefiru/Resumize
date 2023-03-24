@@ -17,30 +17,55 @@ class App extends React.Component {
         location: 'Cebu City, Cebu, Philippines',
       },
     };
-
-    this.onSubmitHeaderDetails = this.onSubmitHeaderDetails.bind(this);
   }
 
-  // sets the current state's headerDetails to the passed in argument's newHeaderDetails
-  onSubmitHeaderDetails(newHeaderDetails) {
-    const { fName, lName, email, telNumber, location } = newHeaderDetails;
+  handleChangeFName = (e) => {
     this.setState({
-      headerDetails: {
-        fName: fName,
-        lName: lName,
-        email: email,
-        telNumber: telNumber,
-        location: location,
-      },
+      headerDetails: { ...this.state.headerDetails, fName: e.target.value },
     });
-  }
+  };
+
+  handleChangeLName = (e) => {
+    this.setState({
+      headerDetails: { ...this.state.headerDetails, lName: e.target.value },
+    });
+  };
+
+  handleChangeEmail = (e) => {
+    this.setState({
+      headerDetails: { ...this.state.headerDetails, email: e.target.value },
+    });
+  };
+
+  handleChangeTelNumber = (e) => {
+    this.setState({
+      headerDetails: { ...this.state.headerDetails, telNumber: e.target.value },
+    });
+  };
+
+  handleChangeLocation = (e) => {
+    this.setState({
+      headerDetails: { ...this.state.headerDetails, location: e.target.value },
+    });
+  };
 
   render() {
+    const headerDetailsFunctions = {
+      handleChangeFName: this.handleChangeFName,
+      handleChangeLName: this.handleChangeLName,
+      handleChangeEmail: this.handleChangeEmail,
+      handleChangeTelNumber: this.handleChangeTelNumber,
+      handleChangeLocation: this.handleChangeLocation,
+    };
+
     return (
       <>
         <Header />
         <main>
-          <Form onSubmitHeaderDetails={this.onSubmitHeaderDetails} />
+          <Form
+            headerDetailsFunctions={headerDetailsFunctions}
+            headerDetails={this.state.headerDetails}
+          />
           <Resume headerDetails={this.state.headerDetails} />
         </main>
       </>
