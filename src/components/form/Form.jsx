@@ -1,6 +1,7 @@
 import React from 'react';
 import './Form.css';
 import FormHeader from './FormHeader';
+import PlusBox from '../../res/plus-box.svg';
 
 class Form extends React.Component {
   constructor(props) {
@@ -22,9 +23,10 @@ class Form extends React.Component {
         <button
           onClick={this.toggleEditHeaderDetails}
           type="button"
-          className="btn--edit-header-details"
+          className="btn btn--edit-header-details"
         >
-          + Edit Header Details
+          <img className="btn__plus" alt="Edit Button" src={PlusBox}></img> Edit
+          Header Details
         </button>
         <FormHeader
           headerDetails={this.props.headerDetails}
