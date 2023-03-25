@@ -15,23 +15,19 @@ class ResumeEducation extends React.Component {
           <span className="ResumeSkills__entry__skill__heading">
             Certifications:&nbsp;
           </span>
-          Add relevant certifications for the job.
+          {this.props.skillsDetails.certifications}
         </li>
         <li>
           <span className="ResumeSkills__entry__skill__heading">
             Skills:&nbsp;
           </span>
-          Strategic planning; recruiting; revenue modeling & forecasting; retail
-          partnerships, sales, & distro; contract negotiations; Amazon
-          marketing; channel marketing; crowdfunding; DTC marketing;
-          copywriting; logistics
+          {this.props.skillsDetails.skills}
         </li>
         <li>
           <span className="ResumeSkills__entry__skill__heading">
             Interests:&nbsp;
           </span>
-          Puns; sleeping; sustainability; politics; yoga; traveling; fishing;
-          Reddit; beer; Seinfeld
+          {this.props.skillsDetails.interests}
         </li>
       </ul>
     );

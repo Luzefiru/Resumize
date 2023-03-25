@@ -1,11 +1,10 @@
 import React from 'react';
 import FormField from './FormField';
-import './FormHeader.css';
 
 class FormHeader extends React.Component {
   render() {
     return (
-      <form className="form--header hide">
+      <form className="form header hide">
         <fieldset>
           <legend>Header Details</legend>
           <FormField

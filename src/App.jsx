@@ -91,9 +91,9 @@ class App extends React.Component {
       handleChangeLocation: this.handleChangeLocation,
     };
 
-    const skillsDetails = {
-      handleChangeLocation: this.handleChangeLocation,
+    const skillsDetailsFunctions = {
       handleChangeCertifications: this.handleChangeCertifications,
+      handleChangeSkills: this.handleChangeSkills,
       handleChangeInterests: this.handleChangeInterests,
     };
 
@@ -105,15 +105,14 @@ class App extends React.Component {
             <Form
               headerDetailsFunctions={headerDetailsFunctions}
               headerDetails={this.state.headerDetails}
-              label="Edit Header Details"
-            />
-            <Form
-              headerDetailsFunctions={headerDetailsFunctions}
-              headerDetails={this.state.headerDetails}
-              label="Edit Skills Details"
+              skillsDetailsFunctions={skillsDetailsFunctions}
+              skillsDetails={this.state.skillsDetails}
             />
           </div>
-          <Resume headerDetails={this.state.headerDetails} />
+          <Resume
+            headerDetails={this.state.headerDetails}
+            skillsDetails={this.state.skillsDetails}
+          />
         </main>
       </>
     );
