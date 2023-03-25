@@ -16,6 +16,15 @@ class App extends React.Component {
         telNumber: '238-0838',
         location: 'Cebu City, Cebu, Philippines',
       },
+      educationDetails: {
+        university: 'University Name',
+        degree: 'Degree (e.g., BS), Majors (e.g., Computer Science)',
+        graduationDate: '2018-07-22',
+        location: 'City, Country',
+        honors: 'Honors, awards, titles, or GPA.',
+        events: 'Participation in any major events.',
+        extracurriculars: 'Extracurricular organizations and activities.',
+      },
       skillsDetails: {
         certifications: 'Add relevant certifications for the job.',
         skills:
@@ -112,6 +121,7 @@ class App extends React.Component {
           <Resume
             headerDetails={this.state.headerDetails}
             skillsDetails={this.state.skillsDetails}
+            educationDetails={this.state.educationDetails}
           />
         </main>
       </>

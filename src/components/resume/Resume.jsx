@@ -11,7 +11,7 @@ class Resume extends React.Component {
       <div className="Resume">
         <ResumeHeader headerDetails={this.props.headerDetails} />
         <ResumeWorkExperience />
-        <ResumeEducation />
+        <ResumeEducation educationDetails={this.props.educationDetails} />
         <ResumeSkills skillsDetails={this.props.skillsDetails} />
       </div>
     );
