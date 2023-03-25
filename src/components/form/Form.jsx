@@ -1,6 +1,7 @@
 import React from 'react';
 import './Form.css';
 import FormHeader from './FormHeader';
+import FormEducation from './FormEducation';
 import FormSkills from './FormSkills';
 import PlusBox from '../../res/plus-box.svg';
 
@@ -26,6 +27,13 @@ class Form extends React.Component {
       .classList.toggle('hide');
   }
 
+  toggleEditEducationDetails() {
+    document.querySelector('.education').classList.toggle('hide');
+    document
+      .querySelector('.btn--edit-education-details')
+      .classList.toggle('hide');
+  }
+
   render() {
     return (
       <div className="Form">
@@ -34,7 +42,11 @@ class Form extends React.Component {
           type="button"
           className="btn btn--edit-header-details"
         >
-          <img className="btn__plus" alt="Edit Button" src={PlusBox}></img>
+          <img
+            className="btn__plus"
+            alt="Edit Header Button"
+            src={PlusBox}
+          ></img>
           Edit Header
         </button>
         <FormHeader
@@ -48,13 +60,35 @@ class Form extends React.Component {
           type="button"
           className="btn btn--edit-skills-details"
         >
-          <img className="btn__plus" alt="Edit Button" src={PlusBox}></img>
+          <img
+            className="btn__plus"
+            alt="Edit Skills Button"
+            src={PlusBox}
+          ></img>
           Edit Skills
         </button>
         <FormSkills
           skillsDetails={this.props.skillsDetails}
           skillsDetailsFunctions={this.props.skillsDetailsFunctions}
           toggleEditSkillsDetails={this.toggleEditSkillsDetails}
+        />
+
+        <button
+          onClick={this.toggleEditEducationDetails}
+          type="button"
+          className="btn btn--edit-education-details"
+        >
+          <img
+            className="btn__plus"
+            alt="Edit Education Button"
+            src={PlusBox}
+          ></img>
+          Edit Education
+        </button>
+        <FormEducation
+          educationDetails={this.props.educationDetails}
+          educationDetailsFunctions={this.props.educationDetailsFunctions}
+          toggleEditEducationDetails={this.toggleEditEducationDetails}
         />
       </div>
     );

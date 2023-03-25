@@ -91,6 +91,69 @@ class App extends React.Component {
     });
   };
 
+  handleChangeUniversity = (e) => {
+    this.setState({
+      educationDetails: {
+        ...this.state.educationDetails,
+        university: e.target.value,
+      },
+    });
+  };
+
+  handleChangeDegree = (e) => {
+    this.setState({
+      educationDetails: {
+        ...this.state.educationDetails,
+        degree: e.target.value,
+      },
+    });
+  };
+
+  handleChangeGraduationDate = (e) => {
+    this.setState({
+      educationDetails: {
+        ...this.state.educationDetails,
+        graduationDate: e.target.value,
+      },
+    });
+  };
+
+  handleChangeEducationLocation = (e) => {
+    this.setState({
+      educationDetails: {
+        ...this.state.educationDetails,
+        location: e.target.value,
+      },
+    });
+  };
+
+  handleChangeHonors = (e) => {
+    this.setState({
+      educationDetails: {
+        ...this.state.educationDetails,
+        honors: e.target.value,
+      },
+    });
+  };
+
+  handleChangeEvents = (e) => {
+    this.setState({
+      educationDetails: {
+        ...this.state.educationDetails,
+        events: e.target.value,
+      },
+    });
+  };
+
+  handleChangeExtracurriculars = (e) => {
+    this.setState({
+      educationDetails: {
+        ...this.state.educationDetails,
+        extracurriculars: e.target.value,
+      },
+    });
+  };
+
   render() {
     const headerDetailsFunctions = {
       handleChangeFName: this.handleChangeFName,
@@ -106,6 +169,16 @@ class App extends React.Component {
       handleChangeInterests: this.handleChangeInterests,
     };
 
+    const educationDetailsFunctions = {
+      handleChangeUniversity: this.handleChangeUniversity,
+      handleChangeDegree: this.handleChangeDegree,
+      handleChangeGraduationDate: this.handleChangeGraduationDate,
+      handleChangeEducationLocation: this.handleChangeEducationLocation,
+      handleChangeHonors: this.handleChangeHonors,
+      handleChangeEvents: this.handleChangeEvents,
+      handleChangeExtracurriculars: this.handleChangeExtracurriculars,
+    };
+
     return (
       <>
         <Header />
@@ -116,6 +189,8 @@ class App extends React.Component {
               headerDetails={this.state.headerDetails}
               skillsDetailsFunctions={skillsDetailsFunctions}
               skillsDetails={this.state.skillsDetails}
+              educationDetailsFunctions={educationDetailsFunctions}
+              educationDetails={this.state.educationDetails}
             />
           </div>
           <Resume
