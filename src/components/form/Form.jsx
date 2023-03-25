@@ -25,8 +25,8 @@ class Form extends React.Component {
           type="button"
           className="btn btn--edit-header-details"
         >
-          <img className="btn__plus" alt="Edit Button" src={PlusBox}></img> Edit
-          Header Details
+          <img className="btn__plus" alt="Edit Button" src={PlusBox}></img>
+          {this.props.label}
         </button>
         <FormHeader
           headerDetails={this.props.headerDetails}

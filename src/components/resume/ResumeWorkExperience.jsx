@@ -49,6 +49,8 @@ class ResumeWorkExperience extends React.Component {
         <hr />
         {this.generateWorkExperienceEntries(this.props.entries)}
         {this.generateWorkExperienceEntries(this.props.entries)}
+        {this.generateWorkExperienceEntries(this.props.entries)}
+        {this.generateWorkExperienceEntries(this.props.entries)}
       </div>
     );
   }

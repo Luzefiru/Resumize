@@ -16,6 +16,12 @@ class App extends React.Component {
         telNumber: '238-0838',
         location: 'Cebu City, Cebu, Philippines',
       },
+      skillsDetails: {
+        certifications: 'Add relevant certifications for the job.',
+        skills:
+          'Strategic planning; recruiting; revenue modeling & forecasting.',
+        interests: 'Puns; sleeping; sustainability; politics; yoga; traveling.',
+      },
     };
   }
 
@@ -49,6 +55,33 @@ class App extends React.Component {
     });
   };
 
+  handleChangeCertifications = (e) => {
+    this.setState({
+      skillsDetails: {
+        ...this.state.skillsDetails,
+        certifications: e.target.value,
+      },
+    });
+  };
+
+  handleChangeSkills = (e) => {
+    this.setState({
+      skillsDetails: {
+        ...this.state.skillsDetails,
+        skills: e.target.value,
+      },
+    });
+  };
+
+  handleChangeInterests = (e) => {
+    this.setState({
+      skillsDetails: {
+        ...this.state.skillsDetails,
+        interests: e.target.value,
+      },
+    });
+  };
+
   render() {
     const headerDetailsFunctions = {
       handleChangeFName: this.handleChangeFName,
@@ -58,14 +91,28 @@ class App extends React.Component {
       handleChangeLocation: this.handleChangeLocation,
     };
 
+    const skillsDetails = {
+      handleChangeLocation: this.handleChangeLocation,
+      handleChangeCertifications: this.handleChangeCertifications,
+      handleChangeInterests: this.handleChangeInterests,
+    };
+
     return (
       <>
         <Header />
         <main>
-          <Form
-            headerDetailsFunctions={headerDetailsFunctions}
-            headerDetails={this.state.headerDetails}
-          />
+          <div className="main__form-container">
+            <Form
+              headerDetailsFunctions={headerDetailsFunctions}
+              headerDetails={this.state.headerDetails}
+              label="Edit Header Details"
+            />
+            <Form
+              headerDetailsFunctions={headerDetailsFunctions}
+              headerDetails={this.state.headerDetails}
+              label="Edit Skills Details"
+            />
+          </div>
           <Resume headerDetails={this.state.headerDetails} />
         </main>
       </>

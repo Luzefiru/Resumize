@@ -1,4 +1,5 @@
 import React from 'react';
+import FormField from './FormField';
 import './FormHeader.css';
 
 class FormHeader extends React.Component {
@@ -7,40 +8,40 @@ class FormHeader extends React.Component {
       <form className="form--header hide">
         <fieldset>
           <legend>Header Details</legend>
-          <label htmlFor="fName">First Name: </label>
-          <input
+          <FormField
+            label="First Name: "
             onChange={this.props.headerDetailsFunctions.handleChangeFName}
             type="text"
             name="fName"
             id="fName"
             value={this.props.headerDetails.fName}
           />
-          <label htmlFor="lName">Last Name: </label>
-          <input
+          <FormField
+            label="Last Name: "
             onChange={this.props.headerDetailsFunctions.handleChangeLName}
             type="text"
             name="lName"
             id="lName"
             value={this.props.headerDetails.lName}
           />
-          <label htmlFor="email">Email Address: </label>
-          <input
+          <FormField
+            label="Email Address: "
             onChange={this.props.headerDetailsFunctions.handleChangeEmail}
             type="email"
             name="email"
             id="email"
             value={this.props.headerDetails.email}
           />
-          <label htmlFor="phone">Phone Number: </label>
-          <input
+          <FormField
+            label="Phone Number: "
             onChange={this.props.headerDetailsFunctions.handleChangeTelNumber}
             type="tel"
             name="phone"
             id="phone"
             value={this.props.headerDetails.telNumber}
           />
-          <label htmlFor="location">Location: </label>
-          <input
+          <FormField
+            label="Location: "
             onChange={this.props.headerDetailsFunctions.handleChangeLocation}
             type="text"
             name="location"
