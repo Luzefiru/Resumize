@@ -35,7 +35,7 @@ class Form extends React.Component {
           className="btn btn--edit-header-details"
         >
           <img className="btn__plus" alt="Edit Button" src={PlusBox}></img>
-          Edit Header Details
+          Edit Header
         </button>
         <FormHeader
           headerDetails={this.props.headerDetails}
@@ -49,7 +49,7 @@ class Form extends React.Component {
           className="btn btn--edit-skills-details"
         >
           <img className="btn__plus" alt="Edit Button" src={PlusBox}></img>
-          Edit Skills Details
+          Edit Skills
         </button>
         <FormSkills
           skillsDetails={this.props.skillsDetails}

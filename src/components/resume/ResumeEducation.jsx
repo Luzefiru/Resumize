@@ -8,7 +8,7 @@ class ResumeEducation extends React.Component {
     this.generateEducationEntry = this.generateEducationEntry.bind(this);
   }
 
-  generateEducationEntry(entries) {
+  generateEducationEntry() {
     return (
       <div className="ResumeEducation__entry">
         <header className="ResumeEducation__entry__header">
