@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './components/layout/Header';
 import Resume from './components/resume/Resume';
 import Form from './components/form/Form';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 import './App.css';
 
 class App extends React.Component {
@@ -33,6 +35,18 @@ class App extends React.Component {
       },
     };
   }
+
+  createPDF = async () => {
+    const name = `${this.state.headerDetails.fName}_${this.state.headerDetails.lName}`;
+    const pdf = new jsPDF('portrait', 'px', [1056, 816]); // A4 paper sizing in pixels
+    const data = await html2canvas(document.querySelector('#pdf'));
+    const img = data.toDataURL('image/png');
+    const imgProperties = pdf.getImageProperties(img);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+    pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save(`${name}_Resume_by_Resumize.pdf`);
+  };
 
   handleChangeFName = (e) => {
     this.setState({
@@ -191,6 +205,7 @@ class App extends React.Component {
               skillsDetails={this.state.skillsDetails}
               educationDetailsFunctions={educationDetailsFunctions}
               educationDetails={this.state.educationDetails}
+              exportToPdfFunction={this.createPDF}
             />
           </div>
           <Resume

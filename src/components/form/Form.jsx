@@ -90,6 +90,19 @@ class Form extends React.Component {
           educationDetailsFunctions={this.props.educationDetailsFunctions}
           toggleEditEducationDetails={this.toggleEditEducationDetails}
         />
+
+        <button
+          onClick={this.props.exportToPdfFunction}
+          type="button"
+          className="btn"
+        >
+          <img
+            className="btn__plus"
+            alt="Export to PDF Button"
+            src={PlusBox}
+          ></img>
+          Export as .pdf
+        </button>
       </div>
     );
   }

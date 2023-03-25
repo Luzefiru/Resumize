@@ -8,7 +8,7 @@ import './Resume.css';
 class Resume extends React.Component {
   render() {
     return (
-      <div className="Resume">
+      <div className="Resume" id="pdf">
         <ResumeHeader headerDetails={this.props.headerDetails} />
         <ResumeWorkExperience />
         <ResumeEducation educationDetails={this.props.educationDetails} />
