@@ -19,7 +19,7 @@ class App extends React.Component {
       educationDetails: {
         university: 'University Name',
         degree: 'Degree (e.g., BS), Majors (e.g., Computer Science)',
-        graduationDate: '2018-07-22',
+        graduationDate: '2010-02',
         location: 'City, Country',
         honors: 'Honors, awards, titles, or GPA.',
         events: 'Participation in any major events.',
