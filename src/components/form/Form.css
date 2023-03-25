@@ -23,13 +23,38 @@
   margin-bottom: 1rem;
 }
 
+.btn--export-to-pdf {
+  transition: all ease-in-out 0.2s;
+  background-color: var(--surface);
+}
+
+.btn--export-to-pdf:hover {
+  background: linear-gradient(
+    to right top,
+    var(--primary),
+    var(--primary-variant)
+  );
+  color: var(--surface);
+  justify-content: center;
+  font-weight: 600;
+}
+
 .btn:hover {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }
 
-.btn__plus {
+.btn__plus,
+.btn__download {
   width: 2rem;
   height: 2rem;
+}
+
+.btn__download {
+  transition: all 0.2s ease-in;
+}
+
+.btn--export-to-pdf:hover .btn__download {
+  filter: invert(1);
 }
 
 .hide {

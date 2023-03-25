@@ -4,6 +4,7 @@ import FormHeader from './FormHeader';
 import FormEducation from './FormEducation';
 import FormSkills from './FormSkills';
 import PlusBox from '../../res/plus-box.svg';
+import DownloadBox from '../../res/download-box.svg';
 
 class Form extends React.Component {
   constructor(props) {
@@ -94,14 +95,14 @@ class Form extends React.Component {
         <button
           onClick={this.props.exportToPdfFunction}
           type="button"
-          className="btn"
+          className="btn btn--export-to-pdf"
         >
           <img
-            className="btn__plus"
-            alt="Export to PDF Button"
-            src={PlusBox}
+            className="btn__download"
+            alt="Edit Education Button"
+            src={DownloadBox}
           ></img>
-          Export as .pdf
+          Save as PDF
         </button>
       </div>
     );
