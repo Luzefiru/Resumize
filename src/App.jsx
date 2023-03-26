@@ -55,7 +55,6 @@ class App extends React.Component {
   }
 
   createPDF = async () => {
-    const name = `${this.state.headerDetails.fName}_${this.state.headerDetails.lName}`;
     const pdf = new jsPDF('portrait', 'px', [1056, 816]); // A4 paper sizing in pixels
     const data = await html2canvas(document.querySelector('#pdf'));
     const img = data.toDataURL('image/png');
@@ -63,6 +62,7 @@ class App extends React.Component {
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
     pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    const name = `${this.state.headerDetails.fName}_${this.state.headerDetails.lName}`;
     pdf.save(`${name}_Resume_by_Resumize.pdf`);
   };
 

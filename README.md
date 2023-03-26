@@ -2,13 +2,13 @@
 
 A simple CV Creation & `.pdf` Exporter App based on [/u/SheetsGiggles](https://www.reddit.com/user/SheetsGiggles/)'s CV template.
 
-# Accomplishing `HTML` to `.pdf` Exports
+# Accomplishing `.html` to `.pdf` Exports
 
 In order to export HTML containers as a `.pdf`, I used a library called [jsPDF](https://github.com/parallax/jsPDF) for the formatting of the document.
 
 This library alone would suffice for generic prints, however, since my CV formatting requires UTF-8 characters, I had to use another library called [html2canvas](https://github.com/niklasvh/html2canvas) which generates a `.png` screenshot of any HTML element, including the CSS styles before exporting it into a `.pdf`.
 
-The code snippet below for a function `createPDF` selects an element with the `id="pdf"` attribute and exports it (and its children) as a `.pdf`, ignoring any elements not included in its parental scope.
+The code snippet below for a function `createPDF` selects an element with the `id="pdf"` attribute and exports it (including its children) as a `.pdf`, ignoring any elements not included in its parental scope.
 
 ```js
 import { jsPDF } from 'jspdf';
