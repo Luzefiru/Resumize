@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# resumize
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple CV Creation & `.pdf` Exporter App based on [/u/SheetsGiggles](https://www.reddit.com/user/SheetsGiggles/)'s CV template.
 
-## Available Scripts
+# Accomplishing `HTML` to `.pdf` Exports
 
-In the project directory, you can run:
+In order to export HTML containers as a `.pdf`, I used a library called [jsPDF](https://github.com/parallax/jsPDF) for the formatting of the document.
 
-### `npm start`
+This library alone would suffice for generic prints, however, since my CV formatting requires UTF-8 characters, I had to use another library called [html2canvas](https://github.com/niklasvh/html2canvas) which generates a `.png` screenshot of any HTML element, including the CSS styles before exporting it into a `.pdf`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The code snippet below for a function `createPDF` selects an element with the `id="pdf"` attribute and exports it (and its children) as a `.pdf`, ignoring any elements not included in its parental scope.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```js
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
-### `npm test`
+createPDF = async () => {
+  const pdf = new jsPDF('portrait', 'px', [1056, 816]); // A4 paper sizing in pixels
+  const data = await html2canvas(document.querySelector('#pdf'));
+  const img = data.toDataURL('image/png');
+  const imgProperties = pdf.getImageProperties(img);
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+  pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  const name = `${this.state.headerDetails.fName}_${this.state.headerDetails.lName}`;
+  pdf.save(`${name}_Resume_by_Resumize.pdf`);
+};
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Output
 
-### `npm run build`
+### [Visit the Website Here](https://luzefiru.github.io/resumize/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="./requirements/website-screenshot.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+These were the requirements in The Odin Project's [Project: CV Application](https://www.theodinproject.com/lessons/node-path-javascript-cv-application) site in order to serve as a capstone project for ReactJS `props` & `state`.
