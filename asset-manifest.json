@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/resumize/static/css/main.85227fa2.css",
-    "main.js": "/resumize/static/js/main.92863b3d.js",
-    "static/js/703.532a25bc.chunk.js": "/resumize/static/js/703.532a25bc.chunk.js",
-    "static/js/751.a9cb0868.chunk.js": "/resumize/static/js/751.a9cb0868.chunk.js",
+    "main.js": "/resumize/static/js/main.f4b7f95b.js",
+    "static/js/703.94fc9c78.chunk.js": "/resumize/static/js/703.94fc9c78.chunk.js",
+    "static/js/751.f9186e35.chunk.js": "/resumize/static/js/751.f9186e35.chunk.js",
     "static/media/logo-combination-white.svg": "/resumize/static/media/logo-combination-white.3e56cc28df7b308417bdc3c78a52c587.svg",
     "index.html": "/resumize/index.html",
     "static/media/download-box.svg": "/resumize/static/media/download-box.79e6bc16446155321a23897787b10f41.svg",
     "static/media/plus-box.svg": "/resumize/static/media/plus-box.ba5a2932538205234242908a07f1221d.svg",
     "static/media/trash-can-outline.svg": "/resumize/static/media/trash-can-outline.1ddc9b93373bde59fe3d.svg",
     "main.85227fa2.css.map": "/resumize/static/css/main.85227fa2.css.map",
-    "main.92863b3d.js.map": "/resumize/static/js/main.92863b3d.js.map",
-    "703.532a25bc.chunk.js.map": "/resumize/static/js/703.532a25bc.chunk.js.map",
-    "751.a9cb0868.chunk.js.map": "/resumize/static/js/751.a9cb0868.chunk.js.map"
+    "main.f4b7f95b.js.map": "/resumize/static/js/main.f4b7f95b.js.map",
+    "703.94fc9c78.chunk.js.map": "/resumize/static/js/703.94fc9c78.chunk.js.map",
+    "751.f9186e35.chunk.js.map": "/resumize/static/js/751.f9186e35.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.85227fa2.css",
-    "static/js/main.92863b3d.js"
+    "static/js/main.f4b7f95b.js"
   ]
 }
