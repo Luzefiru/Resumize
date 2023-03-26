@@ -10,6 +10,19 @@
 
 .ResumeWorkExperience__entry {
   margin-top: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.ResumeWorkExperience__entry:hover::before {
+  content: '';
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: calc(50% - 0.5rem);
+  left: -2.2rem;
+  background-image: url(../../res/trash-can-outline.svg);
+  background-clip: content-box;
 }
 
 .ResumeWorkExperience__entry__header {

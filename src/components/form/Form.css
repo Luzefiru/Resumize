@@ -29,11 +29,7 @@
 }
 
 .btn--export-to-pdf:hover {
-  background: linear-gradient(
-    to right top,
-    var(--primary),
-    var(--primary-variant)
-  );
+  background: linear-gradient(to right top, var(--primary), #393fda);
   color: var(--surface);
   justify-content: center;
   font-weight: 600;

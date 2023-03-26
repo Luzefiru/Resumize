@@ -7,12 +7,26 @@ class ResumeWorkExperience extends React.Component {
 
     this.generateWorkExperienceEntries =
       this.generateWorkExperienceEntries.bind(this);
+    this.deleteEntry = this.deleteEntry.bind(this);
+  }
+
+  deleteEntry(e) {
+    if (e.target === document.querySelector('.ResumeWorkExperience__entry')) {
+      e.target.remove();
+    } else if (
+      e.target.parentElement ===
+      document.querySelector('.ResumeWorkExperience__entry')
+    ) {
+      e.target.parentElement.remove();
+    } else {
+      e.target.parentElement.parentElement.remove();
+    }
   }
 
   // creates entries for the work experience entries
   generateWorkExperienceEntries(entries) {
     return (
-      <div className="ResumeWorkExperience__entry">
+      <div className="ResumeWorkExperience__entry" onClick={this.deleteEntry}>
         <header className="ResumeWorkExperience__entry__header">
           <div className="ResumeWorkExperience__entry__header__company">
             ACME Corporation
