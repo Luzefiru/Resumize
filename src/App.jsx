@@ -18,6 +18,17 @@ class App extends React.Component {
         telNumber: '238-0838',
         location: 'Cebu City, Cebu, Philippines',
       },
+      entries: [
+        {
+          company: 'ACME Corporation',
+          duration: 'Oct. 2017 - Present',
+          position: 'Founder & CEO',
+          location: 'City, Country',
+          responsibility1: 'Core Responsibility #1.',
+          responsibility2: 'Core Responsibility #2.',
+          responsibility3: 'Core Responsibility #3.',
+        },
+      ],
       educationDetails: {
         university: 'University Name',
         degree: 'Degree (e.g., BS), Majors (e.g., Computer Science)',
@@ -34,6 +45,12 @@ class App extends React.Component {
         interests: 'Puns; sleeping; sustainability; politics; yoga; traveling.',
       },
     };
+
+    this.addWorkEntry = this.addWorkEntry.bind(this);
+  }
+
+  addWorkEntry(entry) {
+    this.setState({ entries: [entry, ...this.state.entries] });
   }
 
   createPDF = async () => {
@@ -206,10 +223,13 @@ class App extends React.Component {
               educationDetailsFunctions={educationDetailsFunctions}
               educationDetails={this.state.educationDetails}
               exportToPdfFunction={this.createPDF}
+              addWorkEntry={this.addWorkEntry}
+              entries={this.state.entries}
             />
           </div>
           <Resume
             headerDetails={this.state.headerDetails}
+            entries={this.state.entries}
             skillsDetails={this.state.skillsDetails}
             educationDetails={this.state.educationDetails}
           />

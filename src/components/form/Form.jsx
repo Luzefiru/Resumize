@@ -5,13 +5,17 @@ import FormEducation from './FormEducation';
 import FormSkills from './FormSkills';
 import PlusBox from '../../res/plus-box.svg';
 import DownloadBox from '../../res/download-box.svg';
+import FormWorkExperience from './FormWorkExperience';
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
 
     this.toggleEditHeaderDetails = this.toggleEditHeaderDetails.bind(this);
+    this.toggleAddWork = this.toggleAddWork.bind(this);
     this.toggleEditSkillsDetails = this.toggleEditSkillsDetails.bind(this);
+    this.toggleEditEducationDetails =
+      this.toggleEditEducationDetails.bind(this);
   }
 
   toggleEditHeaderDetails() {
@@ -19,6 +23,11 @@ class Form extends React.Component {
     document
       .querySelector('.btn--edit-header-details')
       .classList.toggle('hide');
+  }
+
+  toggleAddWork() {
+    document.querySelector('.work').classList.toggle('hide');
+    document.querySelector('.btn--add-work').classList.toggle('hide');
   }
 
   toggleEditSkillsDetails() {
@@ -54,6 +63,23 @@ class Form extends React.Component {
           headerDetails={this.props.headerDetails}
           headerDetailsFunctions={this.props.headerDetailsFunctions}
           toggleEditHeaderDetails={this.toggleEditHeaderDetails}
+        />
+
+        <button
+          onClick={this.toggleAddWork}
+          type="button"
+          className="btn btn--add-work"
+        >
+          <img
+            className="btn__plus"
+            alt="Add Work Experience Button"
+            src={PlusBox}
+          ></img>
+          Add Work Experience
+        </button>
+        <FormWorkExperience
+          toggleAddWork={this.toggleAddWork}
+          addWorkEntry={this.props.addWorkEntry}
         />
 
         <button
