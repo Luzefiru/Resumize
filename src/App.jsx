@@ -16,7 +16,7 @@ class App extends React.Component {
         fName: 'Christian',
         lName: 'de Jesus',
         email: 'luzefiru@gmail.com',
-        telNumber: '238-0838',
+        telNumber: '(032) 957-0103',
         location: 'Cebu City, Cebu, Philippines',
       },
       entries: [
