@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Resumize",
+  "name": "Resumize: Simple CV Builder",
   "icons": [
     {
       "src": "favicon.ico",
