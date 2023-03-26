@@ -29,7 +29,7 @@ createPDF = async () => {
 
 # Output
 
-### [Visit the Website Here](https://luzefiru.github.io/Resumize/)
+### [Visit the Website Here](https://luzefiru.github.io/resumize/)
 
 <img src="./requirements/website-screenshot.png">
 
