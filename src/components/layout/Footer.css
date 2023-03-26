@@ -1,0 +1,13 @@
+footer {
+  font-size: 1.1rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+footer > a {
+  display: flex;
+  align-items: center;
+}

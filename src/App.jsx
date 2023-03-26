@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import Resume from './components/resume/Resume';
 import Form from './components/form/Form';
 import html2canvas from 'html2canvas';
@@ -234,6 +235,7 @@ class App extends React.Component {
             educationDetails={this.state.educationDetails}
           />
         </main>
+        <Footer />
       </>
     );
   }
