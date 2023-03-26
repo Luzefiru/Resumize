@@ -33,6 +33,6 @@ createPDF = async () => {
 
 <img src="./requirements/website-screenshot.png">
 
-# Requirements
+# Reference
 
 These were the requirements in The Odin Project's [Project: CV Application](https://www.theodinproject.com/lessons/node-path-javascript-cv-application) site in order to serve as a capstone project for ReactJS `props` & `state`.
