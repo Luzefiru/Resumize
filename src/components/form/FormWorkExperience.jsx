@@ -16,13 +16,23 @@ class FormWorkExperience extends React.Component {
 
     this.props.addWorkEntry({
       company: company.value,
-      duration: position.value,
-      position: duration.value,
+      duration: duration.value,
+      position: position.value,
       location: location.value,
       responsibility1: core1.value,
       responsibility2: core2.value,
       responsibility3: core3.value,
     });
+
+    [
+      company.value,
+      duration.value,
+      position.value,
+      location.value,
+      core1.value,
+      core2.value,
+      core3.value,
+    ] = ['', '', '', '', '', '', ''];
   };
 
   render() {
