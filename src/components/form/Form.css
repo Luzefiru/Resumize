@@ -86,9 +86,10 @@
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.1s ease-out;
+  transition: 50ms ease-in all;
 }
 
-.form > fieldset > button[type='submit']:hover {
-  background-color: var(--primary-variant);
+.form > fieldset > button[type='button']:hover {
+  background-color: #1b20ae;
+  font-size: 1.2rem;
 }
