@@ -48,10 +48,17 @@ class App extends React.Component {
     };
 
     this.addWorkEntry = this.addWorkEntry.bind(this);
+    this.deleteWorkEntry = this.deleteWorkEntry.bind(this);
   }
 
   addWorkEntry(entry) {
     this.setState({ entries: [entry, ...this.state.entries] });
+  }
+
+  deleteWorkEntry(targetIndex) {
+    this.setState((prevState) => {
+      return { entries: prevState.entries.filter((_, i) => i !== targetIndex) };
+    });
   }
 
   createPDF = async () => {
@@ -233,6 +240,7 @@ class App extends React.Component {
             entries={this.state.entries}
             skillsDetails={this.state.skillsDetails}
             educationDetails={this.state.educationDetails}
+            deleteWorkEntry={this.deleteWorkEntry}
           />
         </main>
         <Footer />

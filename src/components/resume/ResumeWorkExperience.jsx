@@ -10,25 +10,20 @@ class ResumeWorkExperience extends React.Component {
     this.deleteEntry = this.deleteEntry.bind(this);
   }
 
-  deleteEntry(e) {
-    if (e.target === document.querySelector('.ResumeWorkExperience__entry')) {
-      e.target.remove();
-    } else if (
-      e.target.parentElement ===
-      document.querySelector('.ResumeWorkExperience__entry')
-    ) {
-      e.target.parentElement.remove();
-    } else {
-      e.target.parentElement.parentElement.remove();
-    }
-  }
-
   // creates entries for the work experience entries
   generateWorkExperienceEntries(entries) {
+    const { deleteWorkEntry } = this.props;
     const outputEntries = [];
+    let id = 0;
     for (let entry of entries) {
       const newJSX = (
-        <div className="ResumeWorkExperience__entry" onClick={this.deleteEntry}>
+        <div
+          className="ResumeWorkExperience__entry"
+          id={id}
+          onClick={() => {
+            deleteWorkEntry(id++);
+          }}
+        >
           <header className="ResumeWorkExperience__entry__header">
             <div className="ResumeWorkExperience__entry__header__company">
               {entry.company}
