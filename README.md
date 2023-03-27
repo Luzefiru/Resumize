@@ -1,4 +1,6 @@
-# resumize
+# Resumize
+
+<img src="./requirements/cover.png">
 
 A simple CV Creation & `.pdf` Exporter App based on [/u/SheetsGiggles](https://www.reddit.com/user/SheetsGiggles/)'s CV template.
 
