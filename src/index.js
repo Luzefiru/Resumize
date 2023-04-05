@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
 
 /* firebase code */
 // Import the functions you need from the SDKs you need
@@ -34,4 +36,13 @@ onAuthStateChanged(auth, (user) => {
 
 /* main code */
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<React.StrictMode>{/* <App /> */}</React.StrictMode>);
+root.render(
+  <React.StrictMode>
+    <div className="auth-wrapper">
+      <Login />
+      <Signup />
+    </div>
+
+    {/* <App /> */}
+  </React.StrictMode>
+);

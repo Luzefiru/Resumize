@@ -1,0 +1,16 @@
+.Signup__fieldset {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Signup__fieldset__field {
+  display: grid;
+}
+
+.Signup__fieldset__submit-btn {
+  height: 2rem;
+  background-color: blue;
+  color: white;
+}
