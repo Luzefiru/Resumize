@@ -7,21 +7,7 @@ import App from '../../App';
 import { useState } from 'react';
 
 import { auth } from './firebase.js';
-import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
-
-// uses signInWithEmailAndPassword() firebase function to sign into the auth service
-const handleLogin = async () => {
-  const email = document.querySelector('#email--login').value;
-  const password = document.querySelector('#password--login').value;
-
-  const userCredential = await signInWithEmailAndPassword(
-    auth,
-    email,
-    password
-  );
-
-  console.log(userCredential);
-};
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function Auth() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -41,7 +27,7 @@ export default function Auth() {
   } else {
     return (
       <div className="auth-wrapper">
-        <Login handleLogin={handleLogin} />
+        <Login />
         <Signup />
       </div>
     );

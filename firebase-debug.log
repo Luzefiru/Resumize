@@ -1,0 +1,35 @@
+[debug] [2023-04-05T05:44:04.070Z] ----------------------------------------------------------------------
+[debug] [2023-04-05T05:44:04.071Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2023-04-05T05:44:04.072Z] CLI Version:   11.25.2
+[debug] [2023-04-05T05:44:04.072Z] Platform:      win32
+[debug] [2023-04-05T05:44:04.072Z] Node Version:  v16.18.0
+[debug] [2023-04-05T05:44:04.073Z] Time:          Wed Apr 05 2023 13:44:04 GMT+0800 (China Standard Time)
+[debug] [2023-04-05T05:44:04.073Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-05T05:44:04.132Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-05T05:44:04.132Z] > authorizing via signed-in user (ian.deejay.iv@gmail.com)
+[debug] [2023-04-05T05:44:04.132Z] [iam] checking project resumize-9630a for permissions ["firebase.projects.get"]
+[debug] [2023-04-05T05:44:04.133Z] > refreshing access token with scopes: []
+[debug] [2023-04-05T05:44:04.135Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-04-05T05:44:04.135Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-05T05:44:04.547Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-04-05T05:44:04.548Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-05T05:44:04.555Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumize-9630a:testIamPermissions [none]
+[debug] [2023-04-05T05:44:04.555Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumize-9630a:testIamPermissions x-goog-quota-user=projects/resumize-9630a
+[debug] [2023-04-05T05:44:04.555Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumize-9630a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-04-05T05:44:05.767Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumize-9630a:testIamPermissions 200
+[debug] [2023-04-05T05:44:05.768Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumize-9630a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-04-05T05:44:05.769Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a [none]
+[debug] [2023-04-05T05:44:06.396Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a 200
+[debug] [2023-04-05T05:44:06.396Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a {"projectId":"resumize-9630a","projectNumber":"698288735788","displayName":"resumize","name":"projects/resumize-9630a","resources":{"hostingSite":"resumize-9630a"},"state":"ACTIVE","etag":"1_91aefca7-8a30-4579-a208-8bb71ce12111"}
+[debug] [2023-04-05T05:44:06.397Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/resumize-9630a/sites 
+[debug] [2023-04-05T05:44:07.726Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/resumize-9630a/sites 200
+[debug] [2023-04-05T05:44:07.726Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/resumize-9630a/sites {"sites":[{"name":"projects/resumize-9630a/sites/resumize-9630a","defaultUrl":"https://resumize-9630a.web.app","appId":"1:698288735788:web:edf938cb37b8587ac83389","type":"DEFAULT_SITE"}]}
+[debug] [2023-04-05T05:44:07.726Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a/webApps/1:698288735788:web:edf938cb37b8587ac83389/config [none]
+[debug] [2023-04-05T05:44:08.984Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a/webApps/1:698288735788:web:edf938cb37b8587ac83389/config 200
+[debug] [2023-04-05T05:44:08.984Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a/webApps/1:698288735788:web:edf938cb37b8587ac83389/config {"projectId":"resumize-9630a","appId":"1:698288735788:web:edf938cb37b8587ac83389","storageBucket":"resumize-9630a.appspot.com","apiKey":"AIzaSyBAKl9Wg7kJUUFuir-UKr8AOQFdvElMjKA","authDomain":"resumize-9630a.firebaseapp.com","messagingSenderId":"698288735788"}
+[debug] [2023-04-05T05:44:08.987Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a [none]
+[debug] [2023-04-05T05:44:09.372Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a 200
+[debug] [2023-04-05T05:44:09.372Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumize-9630a {"projectId":"resumize-9630a","projectNumber":"698288735788","displayName":"resumize","name":"projects/resumize-9630a","resources":{"hostingSite":"resumize-9630a"},"state":"ACTIVE","etag":"1_91aefca7-8a30-4579-a208-8bb71ce12111"}
+[info] i  hosting[resumize-9630a]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[resumize-9630a]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
