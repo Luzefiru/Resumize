@@ -2,7 +2,7 @@ import './Login.css';
 
 import { useState } from 'react';
 
-import { auth } from './firebase';
+import { auth } from '../../firebase-config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 // uses signInWithEmailAndPassword() firebase function to sign into the auth service

@@ -6,7 +6,7 @@ import App from '../../App';
 
 import { useState } from 'react';
 
-import { auth } from './firebase.js';
+import { auth } from '../../firebase-config.js';
 import { onAuthStateChanged } from 'firebase/auth';
 
 export default function Auth() {
