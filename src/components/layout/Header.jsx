@@ -7,6 +7,7 @@ class Header extends React.Component {
     return (
       <header className="Header">
         <img className="Header__logo" src={Logo} alt="Logo"></img>
+        <div className="Header__logout">Log Out</div>
       </header>
     );
   }

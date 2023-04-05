@@ -14,6 +14,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // Initialize Firebase Auth service
-export const auth = getAuth(app);
+const auth = getAuth(app);
 // Initialize AuthEmulator for development purposes, run with: firebase emulators:start --only auth
 connectAuthEmulator(auth, 'http://localhost:9099');
+
+export { app, auth };

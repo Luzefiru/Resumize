@@ -1,6 +1,6 @@
 .Header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
   height: 72px;
@@ -12,4 +12,19 @@
   height: 64px;
   width: 164px;
   cursor: pointer;
+}
+
+.Header__logout {
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  color: #b2b0cd;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 40ms all ease-in;
+}
+
+.Header__logout:hover {
+  transform: scale(1.1);
+  color: var(--surface);
 }
