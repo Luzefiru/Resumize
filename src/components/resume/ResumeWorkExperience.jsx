@@ -7,7 +7,6 @@ class ResumeWorkExperience extends React.Component {
 
     this.generateWorkExperienceEntries =
       this.generateWorkExperienceEntries.bind(this);
-    this.deleteEntry = this.deleteEntry.bind(this);
   }
 
   // creates entries for the work experience entries
