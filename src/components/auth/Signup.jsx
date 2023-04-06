@@ -11,14 +11,14 @@ export default function Signup(props) {
   useEffect(() => {
     const submitBtn = document.querySelector('.Signup__submit-btn');
     if (validateEmail(email)) {
-      submitBtn.classList.remove('error-format');
+      submitBtn.classList.remove('has-error');
     }
   }, [email]);
 
   useEffect(() => {
     const submitBtn = document.querySelector('.Signup__submit-btn');
-    if (submitBtn.classList.contains('error-format') && password.length > 8) {
-      submitBtn.classList.remove('error-format');
+    if (submitBtn.classList.contains('has-error') && password.length > 8) {
+      submitBtn.classList.remove('has-error');
     }
   }, [password]);
 
@@ -87,18 +87,30 @@ async function handleCreateUser() {
 
   if (!(password.length >= 8 && validateEmail(email))) {
     const submitBtn = document.querySelector('.Signup__submit-btn');
-    submitBtn.classList.add('error-format');
+    submitBtn.classList.add('has-error');
+    submitBtn.setAttribute(
+      'error',
+      'Credentials do not match the required format.'
+    );
 
     throw new Error('Sign Up form details do not meet criteria.');
   }
 
-  const userCredential = await createUserWithEmailAndPassword(
-    auth,
-    email,
-    password
-  );
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
 
-  console.log('Successfully signed in: ', userCredential);
+    console.log('Successfully signed in: ', userCredential);
+  } catch (error) {
+    const submitBtn = document.querySelector('.Signup__submit-btn');
+    submitBtn.classList.add('has-error');
+    submitBtn.setAttribute('error', error.code);
+
+    throw new Error(error.code);
+  }
 }
 
 function validateEmail(email) {

@@ -10,7 +10,7 @@ export default function Login(props) {
 
   useEffect(() => {
     const submitBtn = document.querySelector('.Login__submit-btn');
-    submitBtn.classList.remove('error-no-user');
+    submitBtn.classList.remove('has-error');
   }, [email, password]);
 
   const handleChangeEmail = (e) => {
@@ -87,7 +87,24 @@ async function handleLogin() {
     console.log('Successfully logged in: ', userCredential);
   } catch (error) {
     const submitBtn = document.querySelector('.Login__submit-btn');
-    submitBtn.classList.add('error-no-user');
-    throw new Error('User does not exist in the Authentication databse.');
+    submitBtn.classList.add('has-error');
+    submitBtn.setAttribute('error', translateFirebaseError(error.code));
+
+    throw new Error(error.code);
   }
+}
+
+/**
+ *
+ * @param {string} errorCode the caught error.code after using Firebase's {signInWithEmailAndPassword}
+ * @returns a string containing corresponding error message for displaying to the login UI
+ */
+function translateFirebaseError(errorCode) {
+  const errorDict = {
+    'auth/invalid-email': 'Invalid email.',
+    'auth/missing-password': 'Missing password.',
+    'auth/wrong-password': 'Wrong password.',
+  };
+
+  return errorDict[errorCode] + ' Try again.';
 }
