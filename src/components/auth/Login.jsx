@@ -1,26 +1,17 @@
 import './Login.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { auth } from '../../firebase-config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import sideImage from '../../res/sign-in-banner.png';
 
-// uses signInWithEmailAndPassword() firebase function to sign into the auth service
-const handleLogin = async () => {
-  const email = document.querySelector('#email--login').value;
-  const password = document.querySelector('#password--login').value;
-
-  const userCredential = await signInWithEmailAndPassword(
-    auth,
-    email,
-    password
-  );
-
-  console.log(userCredential);
-};
-
 export default function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const submitBtn = document.querySelector('.Login__submit-btn');
+    submitBtn.classList.remove('error-no-user');
+  }, [email, password]);
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -80,4 +71,23 @@ export default function Login(props) {
       </form>
     </div>
   );
+}
+
+// uses signInWithEmailAndPassword() firebase function to sign into the auth service
+async function handleLogin() {
+  const email = document.querySelector('#email--login').value;
+  const password = document.querySelector('#password--login').value;
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log('Successfully logged in: ', userCredential);
+  } catch (error) {
+    const submitBtn = document.querySelector('.Login__submit-btn');
+    submitBtn.classList.add('error-no-user');
+    throw new Error('User does not exist in the Authentication databse.');
+  }
 }

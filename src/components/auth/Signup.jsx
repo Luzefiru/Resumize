@@ -81,20 +81,14 @@ export default function Signup(props) {
   );
 }
 
-function validateEmail(email) {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-}
-
 async function handleCreateUser() {
   const email = document.querySelector('#email--signup').value;
   const password = document.querySelector('#password--signup').value;
 
   if (!(password.length >= 8 && validateEmail(email))) {
-    document.querySelector('.Signup__submit-btn').classList.add('error-format');
+    const submitBtn = document.querySelector('.Signup__submit-btn');
+    submitBtn.classList.add('error-format');
+
     throw new Error('Sign Up form details do not meet criteria.');
   }
 
@@ -104,5 +98,13 @@ async function handleCreateUser() {
     password
   );
 
-  console.log(userCredential);
+  console.log('Successfully signed in: ', userCredential);
+}
+
+function validateEmail(email) {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
 }

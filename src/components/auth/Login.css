@@ -63,8 +63,18 @@
   font-weight: 600;
   background-color: var(--primary);
   border-radius: 8px;
+  position: relative;
 }
 
 .Login__submit-btn:hover {
   background-color: var(--primary-variant);
+}
+
+.Login__submit-btn.error-no-user::after {
+  content: 'User does not exist. Try again.';
+  color: var(--destructive);
+  position: absolute;
+  top: calc(50% + 2.5rem);
+  font-size: 0.8rem;
+  font-weight: 500;
 }
