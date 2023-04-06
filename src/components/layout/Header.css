@@ -17,7 +17,7 @@
 .Header__logout {
   border-radius: 16px;
   padding: 0.5rem 1rem;
-  color: #b2b0cd;
+  color: var(--surface);
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
@@ -26,5 +26,5 @@
 
 .Header__logout:hover {
   transform: scale(1.1);
-  color: var(--surface);
+  color: var(--destructive);
 }
