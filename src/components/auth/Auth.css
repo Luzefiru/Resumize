@@ -6,6 +6,18 @@
   align-items: center;
 }
 
+.form-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.form-wrapper__img {
+  height: 100%;
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
 .form-link {
   color: #4555ea;
   cursor: pointer;
