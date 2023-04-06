@@ -5,3 +5,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.form-link {
+  color: #4555ea;
+  cursor: pointer;
+  text-decoration: underline;
+}

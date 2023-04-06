@@ -1,6 +1,6 @@
 import './Auth.css';
 
-// import Login from './Login';
+import Login from './Login';
 import Signup from './Signup';
 import App from '../../App';
 
@@ -11,6 +11,11 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 export default function Auth() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [wantsToLogin, setWantsToLogin] = useState(false);
+
+  const toggleLogin = () => {
+    console.log('what');
+  };
 
   // listen to auth state changes and set state accordingly to conditionally render <App />
   onAuthStateChanged(auth, (user) => {
@@ -24,10 +29,16 @@ export default function Auth() {
   // conditionally render <App /> based on {loggedIn} state
   if (loggedIn) {
     return <App />;
+  } else if (wantsToLogin) {
+    return (
+      <div className="auth-wrapper">
+        <Login toggleLogin={toggleLogin} />
+      </div>
+    );
   } else {
     return (
       <div className="auth-wrapper">
-        <Signup />
+        <Signup toggleLogin={toggleLogin} />
       </div>
     );
   }

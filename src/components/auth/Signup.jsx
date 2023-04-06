@@ -17,7 +17,7 @@ const handleCreateUser = async () => {
   console.log(userCredential);
 };
 
-export default function Signup() {
+export default function Signup(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -31,7 +31,12 @@ export default function Signup() {
       <form className="Signup">
         <div className="Signup-wrapper">
           <h1 className="Signup__heading">Sign up to Resumize.</h1>
-          <div className="Signup__login-link">Already a member? Log in.</div>
+          <div className="Signup__login-link">
+            Already a member?{' '}
+            <span className="form-link" onClick={props.toggleLogin}>
+              Log in.
+            </span>
+          </div>
           <div className="Signup__field">
             <label htmlFor="email--signup">Email Address</label>
             <input
