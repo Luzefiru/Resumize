@@ -88,7 +88,7 @@ async function handleLogin() {
   } catch (error) {
     const submitBtn = document.querySelector('.Login__submit-btn');
     submitBtn.classList.add('has-error');
-    submitBtn.setAttribute('error', translateFirebaseError(error.code));
+    submitBtn.setAttribute('error', translateFirebaseLoginError(error.code));
 
     throw new Error(error.code);
   }
@@ -99,7 +99,7 @@ async function handleLogin() {
  * @param {string} errorCode the caught error.code after using Firebase's {signInWithEmailAndPassword}
  * @returns a string containing corresponding error message for displaying to the login UI
  */
-function translateFirebaseError(errorCode) {
+function translateFirebaseLoginError(errorCode) {
   const errorDict = {
     'auth/invalid-email': 'Invalid email.',
     'auth/missing-password': 'Missing password.',

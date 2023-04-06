@@ -107,7 +107,7 @@ async function handleCreateUser() {
   } catch (error) {
     const submitBtn = document.querySelector('.Signup__submit-btn');
     submitBtn.classList.add('has-error');
-    submitBtn.setAttribute('error', error.code);
+    submitBtn.setAttribute('error', translateFirebaseSignupError(error.code));
 
     throw new Error(error.code);
   }
@@ -119,4 +119,18 @@ function validateEmail(email) {
     .match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
+}
+
+/**
+ *
+ * @param {string} errorCode the caught error.code after using Firebase's {signInWithEmailAndPassword}
+ * @returns a string containing corresponding error message for displaying to the login UI
+ */
+function translateFirebaseSignupError(errorCode) {
+  const errorDict = {
+    'auth/email-already-in-use':
+      'Email is already registered. Please log in instead.',
+  };
+
+  return errorDict[errorCode];
 }
