@@ -54,7 +54,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // gets te resume data and re-renders the page accordingly
+    // gets the resume data and re-renders the page accordingly
     getFormData(this.props.userID, this.state, this.setState.bind(this));
   }
 
