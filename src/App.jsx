@@ -6,6 +6,8 @@ import Form from './components/form/Form';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import './App.css';
+import { db } from './firebase-config';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 class App extends React.Component {
   constructor(props) {
@@ -49,6 +51,16 @@ class App extends React.Component {
 
     this.addWorkEntry = this.addWorkEntry.bind(this);
     this.deleteWorkEntry = this.deleteWorkEntry.bind(this);
+  }
+
+  componentDidMount() {
+    // gets te resume data and re-renders the page accordingly
+    getFormData(this.props.userID, this.state, this.setState.bind(this));
+  }
+
+  componentDidUpdate() {
+    // saves the resume data into the Firebase Firestore for future retrieval
+    setFormData(this.props.userID, this.state);
   }
 
   addWorkEntry(entry) {
@@ -250,3 +262,31 @@ class App extends React.Component {
 }
 
 export default App;
+
+/**
+ * Fetches data from the Firestore service and sets the state to the corresponding data.
+ *
+ * @param {string} userID - the unique User ID of the current authenticated user
+ * @param {object} state - the current state of the resume to save in setFormData
+ * @param {function} setState - the this.setState function to update form data with
+ */
+async function getFormData(userID, state, setState) {
+  const docSnapshot = await getDoc(doc(db, `resumes/${userID}`));
+  if (docSnapshot.exists()) {
+    // display the data of the firestore's resume to the current window
+    setState(docSnapshot.data());
+  } else {
+    // otherwise use the default template to create the resume in the Firestore Database
+    setFormData(userID, state);
+  }
+}
+
+/**
+ * Sets the userID as a key to a value containing an object with the form data.
+ *
+ * @param {string} userID - the unique User ID of the current authenticated user
+ * @param {object} state - the current state of the resume to save
+ */
+async function setFormData(userID, state) {
+  await setDoc(doc(db, `resumes/${userID}`), state);
+}

@@ -1,6 +1,7 @@
 // Your web app's Firebase configuration
 import { initializeApp } from 'firebase/app';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
+import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBAKl9Wg7kJUUFuir-UKr8AOQFdvElMjKA',
@@ -15,7 +16,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // Initialize Firebase Auth service
 const auth = getAuth(app);
-// Initialize AuthEmulator for development purposes, run with: firebase emulators:start --only auth
-connectAuthEmulator(auth, 'http://localhost:9099');
+// Initialize Firebase Firestore service
+const db = getFirestore(app);
 
-export { app, auth };
+// Initialize Emulators for development purposes, run with: firebase emulators:start
+connectAuthEmulator(auth, 'http://localhost:9099');
+connectFirestoreEmulator(db, 'localhost', 8080);
+
+export { app, auth, db };
