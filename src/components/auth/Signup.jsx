@@ -1,37 +1,26 @@
 import './Signup.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { auth } from '../../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import sideImage from '../../res/sign-in-banner.png';
 
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};
-
-const handleCreateUser = async () => {
-  const email = document.querySelector('#email--signup').value;
-  const password = document.querySelector('#password--signup').value;
-
-  if (!(password.length >= 8 && validateEmail(email))) {
-    throw new Error('Sign Up form details do not meet criteria.');
-  }
-
-  const userCredential = await createUserWithEmailAndPassword(
-    auth,
-    email,
-    password
-  );
-
-  console.log(userCredential);
-};
-
 export default function Signup(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const submitBtn = document.querySelector('.Signup__submit-btn');
+    if (validateEmail(email)) {
+      submitBtn.classList.remove('error-format');
+    }
+  }, [email]);
+
+  useEffect(() => {
+    const submitBtn = document.querySelector('.Signup__submit-btn');
+    if (submitBtn.classList.contains('error-format') && password.length > 8) {
+      submitBtn.classList.remove('error-format');
+    }
+  }, [password]);
 
   return (
     <div className="form-wrapper">
@@ -90,4 +79,30 @@ export default function Signup(props) {
       </form>
     </div>
   );
+}
+
+function validateEmail(email) {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+}
+
+async function handleCreateUser() {
+  const email = document.querySelector('#email--signup').value;
+  const password = document.querySelector('#password--signup').value;
+
+  if (!(password.length >= 8 && validateEmail(email))) {
+    document.querySelector('.Signup__submit-btn').classList.add('error-format');
+    throw new Error('Sign Up form details do not meet criteria.');
+  }
+
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+
+  console.log(userCredential);
 }

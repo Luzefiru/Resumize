@@ -68,8 +68,18 @@
   font-weight: 600;
   background-color: var(--primary);
   border-radius: 8px;
+  position: relative;
 }
 
 .Signup__submit-btn:hover {
   background-color: var(--primary-variant);
+}
+
+.Signup__submit-btn.error-format::after {
+  content: 'Credentials do not meet the specified format.';
+  color: var(--destructive);
+  position: absolute;
+  top: calc(50% + 2.5rem);
+  font-size: 0.8rem;
+  font-weight: 500;
 }

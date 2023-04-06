@@ -10,10 +10,8 @@ export default function Auth() {
   let userID;
 
   try {
-    // console.log('Current user:', auth.currentUser);
     userID = auth.currentUser.uid;
   } catch (error) {
-    console.log('Caught', error);
     userID = null;
   }
 
