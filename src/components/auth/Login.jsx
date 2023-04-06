@@ -41,8 +41,8 @@ export default function Login(props) {
         <div className="Login-wrapper">
           <h1 className="Login__heading">Log in to Resumize.</h1>
           <div className="Login__login-link">
-            Not yet a member?
-            <span className="form-link" onClick={props.toggleLogin}>
+            Not yet a member?{' '}
+            <span onClick={props.toggleLogin} className="form-link">
               Sign up.
             </span>
           </div>

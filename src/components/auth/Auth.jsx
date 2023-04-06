@@ -1,21 +1,12 @@
 import './Auth.css';
-
-import Login from './Login';
-import Signup from './Signup';
 import App from '../../App';
-
 import { useState } from 'react';
-
 import { auth } from '../../firebase-config.js';
 import { onAuthStateChanged } from 'firebase/auth';
+import LoginSignupWrapper from './LoginSignupWrapper';
 
-export default function Auth() {
+export default function Auth({ children }) {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [wantsToLogin, setWantsToLogin] = useState(false);
-
-  const toggleLogin = () => {
-    console.log('what');
-  };
 
   // listen to auth state changes and set state accordingly to conditionally render <App />
   onAuthStateChanged(auth, (user) => {
@@ -29,17 +20,10 @@ export default function Auth() {
   // conditionally render <App /> based on {loggedIn} state
   if (loggedIn) {
     return <App />;
-  } else if (wantsToLogin) {
+  } else
     return (
       <div className="auth-wrapper">
-        <Login toggleLogin={toggleLogin} />
+        <LoginSignupWrapper />
       </div>
     );
-  } else {
-    return (
-      <div className="auth-wrapper">
-        <Signup toggleLogin={toggleLogin} />
-      </div>
-    );
-  }
 }

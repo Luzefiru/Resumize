@@ -61,6 +61,8 @@
   font-size: 1.1rem;
   color: (--text);
   border-radius: 8px;
+  border-color: #d4d4d4;
+  border-style: solid;
 }
 
 .Signup__submit-btn {

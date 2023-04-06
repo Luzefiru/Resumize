@@ -33,7 +33,7 @@ export default function Signup(props) {
           <h1 className="Signup__heading">Sign up to Resumize.</h1>
           <div className="Signup__login-link">
             Already a member?{' '}
-            <span className="form-link" onClick={props.toggleLogin}>
+            <span onClick={props.toggleLogin} to="/login" className="form-link">
               Log in.
             </span>
           </div>
