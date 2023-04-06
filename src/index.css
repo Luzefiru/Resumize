@@ -17,7 +17,9 @@ html,
   --primary-variant: #181b80;
   --surface: #ffffff;
   --text: #010111;
+  --subtext: #bbbbbb;
   --background: #80819528;
+  --destructive: #e43934;
 }
 
 body {

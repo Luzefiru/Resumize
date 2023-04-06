@@ -2,6 +2,7 @@ import './Signup.css';
 import { useState } from 'react';
 import { auth } from '../../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import sideImage from '../../res/sign-in-banner.png';
 
 const handleCreateUser = async () => {
   const email = document.querySelector('#email--signup').value;
@@ -21,46 +22,55 @@ export default function Signup() {
   const [password, setPassword] = useState('');
 
   return (
-    <form className="Signup">
-      <fieldset className="Signup__fieldset">
-        <legend>Sign Up</legend>
-        <div className="Signup__fieldset__field">
-          <label htmlFor="email--signup">Email Address</label>
-          <input
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            type="email--signup"
-            name="email--signup"
-            id="email--signup"
-            value={email}
-            required
-            minLength={8}
-          />
-        </div>
-        <div className="Signup__fieldset__field">
-          <label htmlFor="password--signup">Password</label>
-          <input
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            type="password--signup"
-            name="password--signup"
-            id="password--signup"
-            value={password}
-            required
-            minLength={8}
-          />
-        </div>
+    <div className="form-wrapper">
+      <img
+        className="form-wrapper__img"
+        src={sideImage}
+        alt="Your dream resume is a click away."
+      ></img>
+      <form className="Signup">
+        <div className="Signup-wrapper">
+          <h1 className="Signup__heading">Sign up to Resumize.</h1>
+          <div className="Signup__login-link">Already a member? Log in.</div>
+          <div className="Signup__field">
+            <label htmlFor="email--signup">Email Address</label>
+            <input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              type="email--signup"
+              name="email--signup"
+              id="email--signup"
+              value={email}
+              required
+              placeholder="john.doe@gmail.com"
+            />
+          </div>
+          <div className="Signup__field">
+            <label htmlFor="password--signup">Password</label>
+            <input
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              type="password--signup"
+              name="password--signup"
+              id="password--signup"
+              value={password}
+              required
+              minLength={8}
+              placeholder="minimum of 8 characters"
+            />
+          </div>
 
-        <button
-          onClick={handleCreateUser}
-          className="Signup__fieldset__submit-btn"
-          type="button"
-        >
-          Sign Up
-        </button>
-      </fieldset>
-    </form>
+          <button
+            onClick={handleCreateUser}
+            className="Signup__submit-btn"
+            type="button"
+          >
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
